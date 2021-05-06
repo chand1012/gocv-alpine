@@ -1,4 +1,4 @@
-# GoCV-compatible OpenCV 4.0.1 Alpine 3.7 Docker images
+# GoCV-compatible OpenCV 4.5.1 Alpine 3.13 Docker images
 
 ## What's in build-stage image?
 

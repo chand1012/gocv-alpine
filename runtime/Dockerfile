@@ -1,4 +1,4 @@
-FROM chand1012/gocv-alpine:latest as build-stage
+FROM chand1012/gocv-alpine:4.5.1-buildstage as build-stage
 FROM golang:1.16-alpine3.13
 
 LABEL maintainer="Denis Makogon. mail: lildee1991@gmail.com"
