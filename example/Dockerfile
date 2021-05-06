@@ -1,9 +1,9 @@
-FROM denismakogon/gocv-alpine:4.0.1-buildstage as build-stage
+FROM chand1012/gocv-alpine:latest as build-stage
 
 RUN go get -u -d gocv.io/x/gocv
-RUN cd $GOPATH/src/gocv.io/x/gocv && go build -o $GOPATH/bin/gocv-version ./cmd/version/main.go
+RUN cd /go/pkg/mod/gocv.io/x/gocv@v0.27.0 && go build -o $GOPATH/bin/gocv-version ./cmd/version/main.go
 
-FROM denismakogon/gocv-alpine:4.0.1-runtime
+FROM chand1012/gocv-alpine:minimal
 
 COPY --from=build-stage /go/bin/gocv-version /gocv-version
 ENTRYPOINT ["/gocv-version"]

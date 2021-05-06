@@ -1,8 +1,9 @@
-FROM denismakogon/ffmpeg-alpine:4.0-golang
+# this is latest one with jasper
+FROM golang:1.16-alpine3.13
 
-LABEL maintainer="Denis Makogon. mail: lildee1991@gmail.com"
+LABEL maintainer="Chandler Lofland"
 
-ENV OPENCV_VERSION=4.0.1
+ENV OPENCV_VERSION=4.5.1
 ENV BUILD="ca-certificates \
          git \
          build-base \
@@ -19,16 +20,16 @@ ENV BUILD="ca-certificates \
          libwebp-dev \
          tiff \
          libavc1394 \
-         jasper-libs \
          openblas \
          libgphoto2 \
          gstreamer \
-         gst-plugins-base"
+         gst-plugins-base\
+         ffmpeg"
 
 ENV DEV="clang clang-dev cmake pkgconf \
          openblas-dev gstreamer-dev gst-plugins-base-dev \
          libgphoto2-dev libjpeg-turbo-dev libpng-dev \
-         tiff-dev jasper-dev libavc1394-dev"
+         tiff-dev libavc1394-dev"
 
 
 RUN apk update && \
@@ -58,7 +59,7 @@ RUN mkdir /tmp/opencv && \
     -D BUILD_opencv_python2=NO \
     -D BUILD_opencv_python3=NO \
     -D OPENCV_GENERATE_PKGCONFIG=YES .. && \
-    make -j4 && \
+    make -j$(nproc) && \
     make install && \
     cd && rm -rf /tmp/opencv
 

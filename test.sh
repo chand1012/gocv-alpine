@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-pushd build-stage && docker build -t denismakogon/gocv-alpine:3.4.2-buildstage .; popd
-pushd runtime && docker build -t denismakogon/gocv-alpine:3.4.2-runtime .; popd
-pushd example && docker build -t denismakogon/gocv-alpine:test .; popd
-docker run --rm -ti denismakogon/gocv-alpine:test
-docker rmi -f denismakogon/gocv-alpine:test
+docker build -f build-stage/Dockerfile -t chand1012/gocv-alpine:4.5.1-buildstage .
+docker build -f runtime/Dockerfile -t chand1012/gocv-alpine:4.5.1-runtime .
+docker build -f example/Dockerfile -t chand1012/gocv-alpine:test .
+docker run --rm chand1012/gocv-alpine:test
+docker rmi -f chand1012/gocv-alpine:test

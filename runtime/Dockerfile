@@ -1,5 +1,5 @@
-FROM denismakogon/gocv-alpine:4.0.1-buildstage as build-stage
-FROM denismakogon/ffmpeg-alpine:4.0
+FROM chand1012/gocv-alpine:latest as build-stage
+FROM golang:1.16-alpine3.13
 
 LABEL maintainer="Denis Makogon. mail: lildee1991@gmail.com"
 
@@ -16,9 +16,7 @@ ENV PKG="libstdc++ \
          libwebp \
          libwebp-dev \
          tiff \
-         jasper-libs \
          libavc1394 \
-         jasper-libs \
          openblas \
          libgphoto2 \
          gstreamer \
