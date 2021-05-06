@@ -1,4 +1,3 @@
-# this is latest one with jasper
 FROM golang:1.16-alpine3.13
 
 LABEL maintainer="Chandler Lofland"

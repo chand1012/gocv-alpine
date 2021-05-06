@@ -1,7 +1,7 @@
 FROM chand1012/gocv-alpine:4.5.1-buildstage as build-stage
 FROM golang:1.16-alpine3.13
 
-LABEL maintainer="Denis Makogon. mail: lildee1991@gmail.com"
+LABEL maintainer="Chandler Lofland"
 
 # OpenCV 4.0.1 shared objects from build-stage
 COPY --from=build-stage /usr/local/lib64 /usr/local/lib64
