@@ -45,3 +45,5 @@ the output should be the following:
 gocv version: 0.27.0
 opencv lib version: 4.5.1
 ```
+
+You can also download the images from [Docker Hub](https://hub.docker.com/r/chand1012/gocv-alpine).
