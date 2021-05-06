@@ -1,0 +1,16 @@
+name: Publish Docker
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build Image
+      run: |
+       docker login -u chand1012 --password ${{ secrets.DOCKER_TOKEN }}
+       bash test.sh
+       docker push chand1012/gocv-alpine:4.5.1-buildstage
+       docker push chand1012/gocv-alpine:4.5.1-runtime
